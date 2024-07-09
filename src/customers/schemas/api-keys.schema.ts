@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, Schema as MongooseSchema } from 'mongoose';
+import { Organization } from './customer-organization.schema';
 
 @Schema({
   timestamps: true,
@@ -8,7 +9,7 @@ import { Document, Schema as MongooseSchema } from 'mongoose';
 export class ApiKeys extends Document {
   @Prop({
     type: MongooseSchema.Types.String,
-    // ref: Payment.name,
+    ref: Organization.name,
     required: true,
     index: true,
     unique: false,
